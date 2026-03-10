@@ -1,8 +1,15 @@
-import {ThemeProvider} from "./ThemeContext"
-
+import { ThemeProvider } from "./ThemeContext";
+import { LanguageProvider } from "./LanguageContext";
+import { AuthProvider } from "./AuthContext";
 
 function AppProviders({ children }) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <AuthProvider>
+      <ThemeProvider>
+        <LanguageProvider>{children}</LanguageProvider>
+      </ThemeProvider>
+    </AuthProvider>
+  );
 }
 
-export default AppProviders
+export default AppProviders;
